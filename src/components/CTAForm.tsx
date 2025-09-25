@@ -1,14 +1,40 @@
 "use client";
 import { useState } from "react";
 
+type LeadForm = {
+    name: string;
+    contact: string;
+    budget?: string;
+    task?: string;
+};
+
 export function CTAForm() {
     const [sent, setSent] = useState(false);
 
-    async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    function toObject(form: HTMLFormElement): LeadForm {
+        const fd = new FormData(form);
+        // FormData.get возвращает FormDataEntryValue | null
+        return {
+            name: (fd.get("name") as string) ?? "",
+            contact: (fd.get("contact") as string) ?? "",
+            budget: (fd.get("budget") as string) ?? undefined,
+            task: (fd.get("task") as string) ?? undefined,
+        };
+    }
+
+     async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.currentTarget) as any);
-        // TODO: отправить в ваш бэкенд/почту/Telegram
+        const form = e.currentTarget;
+        const data = toObject(form);
+
+        // Пример простой валидации
+        if (!data.name.trim() || !data.contact.trim()) {
+            alert("Заполните имя и контакт");
+            return;
+        }
+
         console.log("lead", data);
+        // TODO: отправка в API/почту/Telegram
         setSent(true);
     }
 
