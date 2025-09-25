@@ -5,17 +5,15 @@ import Image from "next/image";
 type Params = { slug: string };
 
 export function generateStaticParams(): Params[] {
-    return builds.map(b => ({ slug: b.slug }));
+    return builds.map((b) => ({ slug: b.slug }));
 }
 
-export default function BuildPage({
-            params,
-        }: {
-            params: Params;
-            searchParams?: Record<string, string | string[] | undefined>;
-        }) {
-            const build = builds.find(b => b.slug === params.slug);
-            if (!build) return notFound();
+export default function BuildPage(props: unknown) {
+    const params = (props as { params?: unknown })?.params as Params | undefined;
+    if (!params?.slug) return notFound();
+
+    const build = builds.find((b) => b.slug === params.slug);
+    if (!build) return notFound();
 
     return (
         <main className="container mx-auto px-4 py-10">
