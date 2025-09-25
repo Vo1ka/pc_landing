@@ -2,14 +2,21 @@ import { builds } from "@/lib/data/builds";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
+type Params = { slug: string };
 
-export function generateStaticParams() {
+export function generateStaticParams(): Params[] {
     return builds.map(b => ({ slug: b.slug }));
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-    const build = builds.find(b => b.slug === params.slug);
-    if (!build) return notFound();
+export default function BuildPage({
+            params,
+        }: {
+            params: Params;
+            searchParams?: Record<string, string | string[] | undefined>;
+        }) {
+            const build = builds.find(b => b.slug === params.slug);
+            if (!build) return notFound();
+
     return (
         <main className="container mx-auto px-4 py-10">
             <h1 className="text-3xl font-bold mb-6">{build.name}</h1>
