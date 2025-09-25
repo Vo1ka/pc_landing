@@ -8,7 +8,7 @@ export function Hero() {
             <Glow className="top-1/3 -right-32" size={420} color="rgba(14,165,233,0.22)" />
             <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
                 <div className="max-w-3xl">
-                    <p className="mb-4 inline-flex items-center rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs text-violet-300">
+                    <p className="mb-4 inline-flex items-center rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-xs text-orange-300">
                         Сборка ПК на заказ · Доставка по РФ
                     </p>
                     <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
@@ -18,7 +18,7 @@ export function Hero() {
                         Подбор комплектующих, стресс‑тесты, тихая и аккуратная сборка, установка ПО и драйверов.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-3">
-                        <Link href="/builds" className="rounded-md bg-violet-600 px-5 py-3 font-medium hover:bg-violet-500">
+                        <Link href="/builds" className="rounded-md bg-orange-600 px-5 py-3 font-medium hover:bg-orange-500">
                             Выбрать готовую сборку
                         </Link>
                         <Link href="/contacts" className="rounded-md border border-white/10 px-5 py-3 font-medium hover:bg-white/10">

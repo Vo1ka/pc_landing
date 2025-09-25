@@ -15,7 +15,7 @@ export function BuildCard({ build }: { build: Build }) {
             </ul>
             <div className="mt-3 flex items-center justify-between">
                 <span className="text-lg font-bold">{build.price.toLocaleString("ru-RU")} ₽</span>
-                <Link href={`/builds/${build.slug}`} className="px-3 py-2 rounded-md bg-violet-600 hover:bg-violet-500 transition">
+                <Link href={`/builds/${build.slug}`} className="px-3 py-2 rounded-md bg-orange-600 hover:bg-orange-500 transition">
                     Подробнее
                 </Link>
             </div>

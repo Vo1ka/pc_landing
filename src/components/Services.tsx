@@ -7,26 +7,27 @@ function ServiceCard({ image, title, items }: { image: string; title: string; it
         <div className="relative h-full">
             {/* Иконка — одинаковое позиционирование для всех карточек */}
             <div className="pointer-events-none absolute left-1/2 -top-8 z-10 -translate-x-1/2">
-                <div className="rounded-xl border border-white/10 bg-black/55 backdrop-blur px-2 py-2 shadow-[0_12px_36px_-12px_rgba(124,58,237,0.45)]">
+                <div className="rounded-xl border border-white/10 bg-black/55 backdrop-blur px-2 py-2 shadow-[0_12px_36px_-12px_rgba(237, 153, 58, 0.25)]">
                     <Image src={image} alt={title} width={72} height={72} className="h-18 w-18 object-contain" />
                 </div>
             </div>
 
             {/* Карточка */}
-            <div
+           <div
                 className="
                     group relative flex h-full flex-col justify-between
                     rounded-3xl border border-white/10 bg-neutral-950
                     p-6 pt-16 md:p-7 md:pt-20
                     shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]
-                    transition hover:shadow-[0_10px_30px_-10px_rgba(124,58,237,0.35)]
+                    transition
+                    shadow-orange-500/30 hover:shadow-orange-500/40
+                    hover:shadow-[0_10px_30px_-10px_var(--tw-shadow-color)]
                 "
             >
-                {/* Подсветка по hover */}
                 <div
                     className="
                         pointer-events-none absolute inset-0 rounded-3xl
-                        bg-[radial-gradient(700px_140px_at_50%_-10%,rgba(124,58,237,0.18),transparent)]
+                        bg-[radial-gradient(700px_140px_at_50%_-10%,theme(colors.orange.500/25),transparent)]
                         opacity-0 transition-opacity duration-300 group-hover:opacity-100
                     "
                 />
@@ -36,7 +37,7 @@ function ServiceCard({ image, title, items }: { image: string; title: string; it
                     <h3 className="mx-auto max-w-[18ch] text-center text-xl md:text-2xl font-extrabold uppercase tracking-wide">
                         {title}
                     </h3>
-                    <div className="mx-auto mt-4 h-px w-3/4 bg-gradient-to-r from-violet-600/40 via-white/5 to-transparent" />
+                    <div className="mx-auto mt-4 h-px w-3/4 bg-gradient-to-r from-orange-600/40 via-white/5 to-transparent" />
                 </div>
 
                 {/* Контент: список — растёт, но не ломает низ */}

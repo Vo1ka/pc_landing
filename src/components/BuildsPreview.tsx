@@ -17,7 +17,7 @@ export function BuildsPreview() {
         <section id="builds" className="mx-auto max-w-6xl px-4 py-14">
             <div className="mb-6 flex items-end justify-between gap-4">
                 <h2 className="text-3xl font-bold">Лучшее решение для вас</h2>
-                <Link href="/builds" className="text-violet-400 hover:text-violet-300">Все сборки →</Link>
+                <Link href="/builds" className="text-orange-400 hover:text-orange-300">Все сборки →</Link>
             </div>
 
             <div className="mb-6 flex flex-wrap gap-2">
@@ -25,7 +25,7 @@ export function BuildsPreview() {
                     <button
                         key={r.id}
                         onClick={() => setRange(r.id)}
-                        className={`rounded-full px-3 py-1 text-sm border ${range === r.id ? "bg-violet-600 border-violet-600" : "border-white/10 hover:bg-white/10"}`}
+                        className={`rounded-full px-3 py-1 text-sm border ${range === r.id ? "bg-orange-600 border-orange-600" : "border-white/10 hover:bg-white/10"}`}
                     >
                         {r.label}
                     </button>
@@ -45,7 +45,7 @@ export function BuildsPreview() {
                         </ul>
                         <div className="mt-3 flex items-center justify-between">
                             <span className="text-lg font-bold">{b.price.toLocaleString("ru-RU")} ₽</span>
-                            <Link href={`/builds/${b.slug}`} className="px-3 py-2 rounded-md bg-violet-600 hover:bg-violet-500">Подробнее</Link>
+                            <Link href={`/builds/${b.slug}`} className="px-3 py-2 rounded-md bg-orange-600 hover:bg-orange-500">Подробнее</Link>
                         </div>
                     </article>
                 ))}

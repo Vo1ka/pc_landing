@@ -1,6 +1,6 @@
 export function Glow({
     className = "",
-    color = "rgba(124,58,237,0.25)",
+    color = "rgba(237, 153, 58, 0.25)",
     size = 500,
 }: { className?: string; color?: string; size?: number }) {
     return (
