@@ -13,14 +13,55 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+   :root {
+    --bg-1: #0a0a0b;
+    --bg-2: #0b0c12;
+    --bg-3: #0c0f1a;
+}
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+background:
+  radial-gradient(80% 60% at 50% -10%, rgba(124, 58, 237, 0.12), transparent 60%),
+  linear-gradient(180deg, var(--bg-1), var(--bg-2) 40%, var(--bg-3));
+}
+
+
+html, body {
+    background-color: #000;
+}
+.grid-bg {
+    background-image:
+        radial-gradient(transparent 1px, rgba(255,255,255,0.04) 1px),
+        radial-gradient(transparent 1px, rgba(255,255,255,0.04) 1px);
+    background-size: 32px 32px, 32px 32px;
+    background-position: 0 0, 16px 16px;
+}
+
+.bg-tech-grid {
+  background-image:
+  linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+  background-position: -1px -1px, -1px -1px;
+  /* затемнение по бокам через маску */
+  -webkit-mask-image:
+      radial-gradient(100% 100% at 50% 50%, black 0, black 100%),
+      linear-gradient(to right,
+          transparent 0%,
+          black 8%,
+          black 92%,
+          transparent 100%
+      );
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect; /* для Firefox */
+
+  mask-image:
+      radial-gradient(100% 100% at 50% 50%, black 0, black 100%),
+      linear-gradient(to right,
+          transparent 0%,
+          black 8%,
+          black 92%,
+          transparent 100%
+  );
 }
